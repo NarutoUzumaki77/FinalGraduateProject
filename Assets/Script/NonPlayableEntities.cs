@@ -4,8 +4,10 @@ using System.Collections;
 public class NonPlayableEntities : MonoBehaviour {
     
     public GameObject[] entity;
+    public GameObject barn;
 
     private int npeSize;
+    private float barnoffset = 0.24f;
 
 	// Use this for initialization
 	void Start () {
@@ -14,16 +16,16 @@ public class NonPlayableEntities : MonoBehaviour {
         for (int i = 0; i < npeSize; i++){
             string position = DetermineEntityDropPosition();
             string[] posArray = position.Split('|');
-            print(position); 
             float x = float.Parse(posArray[0]);
             float y = float.Parse(posArray[1]);
-            Instantiate(entity[0], new Vector3(x, y, 0f), Quaternion.identity);
+            int index = Mathf.RoundToInt(Random.Range(0f, 1f));
+            GameObject npc = Instantiate(entity[index], new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+            npc.transform.parent = this.transform;
         }
-	}
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        //print("Collided with " + collision.gameObject.tag);
-    }
+        //Generate Barn
+        Instantiate(barn, new Vector3(9f, 1f + barnoffset), Quaternion.identity);
+	}
 
     private string DetermineEntityDropPosition() {
 
@@ -43,8 +45,8 @@ public class NonPlayableEntities : MonoBehaviour {
                 }
 			}
         } while (posFoundinList);
+        PCG_MazeBricks.mazePositions.Add(position);
 
         return position;
-
     }
 }

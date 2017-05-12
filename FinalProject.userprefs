@@ -1,11 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/LevelManager.cs">
     <Files>
-      <File FileName="Assets/Script/GenerateGameBorders.cs" Line="22" Column="9" />
+      <File FileName="Assets/Script/GenerateGameBorders.cs" Line="41" Column="5" />
       <File FileName="Assets/Script/LevelManager.cs" Line="18" Column="39" />
-      <File FileName="Assets/Script/NonPlayableEntities.cs" Line="15" Column="37" />
-      <File FileName="Assets/Script/PCG_MazeBricks.cs" Line="30" Column="37" />
-      <File FileName="Assets/test.cs" Line="9" Column="50" />
+      <File FileName="Assets/Script/NonPlayableEntities.cs" Line="27" Column="26" />
+      <File FileName="Assets/Script/PCG_MazeBricks.cs" Line="24" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
