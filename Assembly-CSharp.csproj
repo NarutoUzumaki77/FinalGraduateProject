@@ -50,6 +50,7 @@
      <Compile Include="Assets\Script\GenerateGameBorders.cs" />
      <Compile Include="Assets\Script\LevelManager.cs" />
      <Compile Include="Assets\Script\MusicManager.cs" />
+     <Compile Include="Assets\Script\NonPlayableEntities.cs" />
      <Compile Include="Assets\Script\OptionsController.cs" />
      <Compile Include="Assets\Script\PCG_MazeBricks.cs" />
      <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
