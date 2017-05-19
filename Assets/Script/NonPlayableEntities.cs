@@ -2,16 +2,15 @@
 using System.Collections;
 
 public class NonPlayableEntities : MonoBehaviour {
-    
+
+	public GameObject barn;
     public GameObject[] entity;
-    public GameObject barn;
 
     private int npeSize;
-    private float barnoffset = 0.24f;
 
 	// Use this for initialization
 	void Start () {
-        npeSize = entity.Length * 2;
+        npeSize = entity.Length * Mathf.RoundToInt(PlayerPrefsManager.GetDifficulty());
 
         for (int i = 0; i < npeSize; i++){
             string position = DetermineEntityDropPosition();
@@ -24,7 +23,8 @@ public class NonPlayableEntities : MonoBehaviour {
         }
 
         //Generate Barn
-        Instantiate(barn, new Vector3(9f, 1f + barnoffset), Quaternion.identity);
+        Instantiate(barn, new Vector3(9f, 1f), Quaternion.identity);
+
 	}
 
     private string DetermineEntityDropPosition() {

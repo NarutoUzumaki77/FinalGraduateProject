@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\3D\GenerateMaze.cs" />
      <Compile Include="Assets\Script\FadeOut.cs" />
+     <Compile Include="Assets\Script\Fox.cs" />
      <Compile Include="Assets\Script\GenerateGameBorders.cs" />
      <Compile Include="Assets\Script\LevelManager.cs" />
      <Compile Include="Assets\Script\MusicManager.cs" />
