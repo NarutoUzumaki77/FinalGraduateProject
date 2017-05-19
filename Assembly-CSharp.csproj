@@ -47,9 +47,11 @@
   <ItemGroup>
      <Compile Include="Assets\3D\GenerateMaze.cs" />
      <Compile Include="Assets\Script\FadeOut.cs" />
+     <Compile Include="Assets\Script\Fox.cs" />
      <Compile Include="Assets\Script\GenerateGameBorders.cs" />
      <Compile Include="Assets\Script\LevelManager.cs" />
      <Compile Include="Assets\Script\MusicManager.cs" />
+     <Compile Include="Assets\Script\NonPlayableEntities.cs" />
      <Compile Include="Assets\Script\OptionsController.cs" />
      <Compile Include="Assets\Script\PCG_MazeBricks.cs" />
      <Compile Include="Assets\Script\PlayerPrefsManager.cs" />

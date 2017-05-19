@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PCG_MazeBricks : MonoBehaviour {
 
 	public GameObject brick;
 	public int colheight;
 	public int rowheight;
-
-	private float xOffset = 0.97f;
-	private float yOffset = 0.17f;
+    public static List<string> mazePositions = new List<string>();
 
 	private int [,] worldMap;
 
-	// Use this for initialization
 	void Start () {
 
 		worldMap = new int[colheight, rowheight];
@@ -20,19 +18,20 @@ public class PCG_MazeBricks : MonoBehaviour {
 		for (int i = 0; i < colheight; i++) {
 			for (int j = 0; j < rowheight; j++){
 				worldMap[i,j] = Mathf.RoundToInt(Random.Range(0,5));
-				print ("["+i+","+j+"] = "+ worldMap[i,j]);
 
+                mazePositions.Add("9|1"); //Barn position
 				if (worldMap [i,j]>=4) {
-					GameObject t = (GameObject)(Instantiate (brick, new Vector3 (j+xOffset, i+yOffset+1f, 0),
-											Quaternion.identity));
-					t.transform.parent = this.transform;
+                    if (j != 8 && i != 1) {
+                        float x = j + 1f;
+                        float y = i + 1f;
+                        GameObject t = (GameObject)(Instantiate(brick, new Vector3(x, y, 0),
+                                                Quaternion.identity));
+                        t.transform.parent = this.transform;
+                        string position = Mathf.RoundToInt(x) + "|" + Mathf.RoundToInt(y);
+                        mazePositions.Add(position);
+                    }
 				}
 			}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

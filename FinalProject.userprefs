@@ -1,16 +1,20 @@
-﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GenerateGameBorders.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Fox.cs">
     <Files>
-      <File FileName="Assets/Script/GenerateGameBorders.cs" Line="33" Column="36" />
-      <File FileName="Assets/Script/PCG_MazeBricks.cs" Line="13" Column="27" />
-      <File FileName="Assets/Script/LevelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/MusicManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/OptionsController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/GenerateGameBorders.cs" Line="41" Column="5" />
+      <File FileName="Assets/Script/LevelManager.cs" Line="18" Column="39" />
+      <File FileName="Assets/Script/NonPlayableEntities.cs" Line="24" Column="9" />
+      <File FileName="Assets/Script/PCG_MazeBricks.cs" Line="35" Column="4" />
+      <File FileName="Assets/Script/PlayerPrefsManager.cs" Line="17" Column="3" />
+      <File FileName="Assets/Script/OptionsController.cs" Line="9" Column="35" />
+      <File FileName="Assets/Script/FadeOut.cs" Line="20" Column="3" />
+      <File FileName="Assets/Script/Fox.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
