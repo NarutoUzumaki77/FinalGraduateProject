@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using System.Collections;
 
 public class Fox : MonoBehaviour {
@@ -10,7 +10,7 @@ public class Fox : MonoBehaviour {
     private bool isWalkingRight = true;
     private bool isWalkingUp = false;
     private bool isWalkingDown = false;
-    private float delayTime = 2.0f;
+    private float delayTime = 1.0f;
     private GameObject child;
 
 	// Use this for initialization
@@ -37,7 +37,6 @@ public class Fox : MonoBehaviour {
             anim.SetBool("IsJumping", true);
         }else if (obj.tag == "Brick" && !foxjump) {
             anim.SetBool("isIdle", true);
-            //Invoke("ChangeDirection", delayTime);
             InvokeRepeating("ChangeDirection", delayTime, delayTime);
         }
     }
@@ -59,24 +58,24 @@ public class Fox : MonoBehaviour {
         Debug.Log(dir);
         switch (dir){
             case 1:
+                //WalkingLeft
                 isWalkingLeft = true;
                 isWalkingRight = false;
                 isWalkingUp = false;
                 isWalkingDown = false;
+				GetComponent<BoxCollider2D>().offset = new Vector2(-0.38f, -0.04888678f);
                 child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
                                                         child.transform.localScale.y, child.transform.localScale.z);
-                GetComponent<BoxCollider2D>().offset = new Vector2(-0.3f, -0.04888678f);
                 break;
             case 2:
-                if (isWalkingLeft){
-					child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
-										child.transform.localScale.y, child.transform.localScale.z);
-                    GetComponent<BoxCollider2D>().offset = new Vector2(-0.07398391f, -0.04888678f);
-                }
+                //WalkingRight
                 isWalkingLeft = false;
 				isWalkingRight = true;
 				isWalkingUp = false;
 				isWalkingDown = false;
+                GetComponent<BoxCollider2D>().offset = new Vector2(0.14f, -0.04888678f);
+				child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
+									child.transform.localScale.y, child.transform.localScale.z);
 				break;
 			case 3:
                 isWalkingLeft = false;
