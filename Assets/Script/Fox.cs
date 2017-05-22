@@ -23,14 +23,26 @@ public class Fox : MonoBehaviour {
 	void Update () {
         if (isWalkingRight){
             transform.Translate(Vector3.right * speed * Time.deltaTime);
-        }
-        if (isWalkingLeft){
+        } if (isWalkingLeft){
 			transform.Translate(Vector3.left * speed * Time.deltaTime);
-		}
+        } if (isWalkingDown && transform.position.y >= 1.2f){
+            transform.Translate((Vector3.down * (speed * 0.5f) * Time.deltaTime));
+            if (transform.position.y <= 1.2f){
+				Invoke("ChangeDirection", delayTime);
+            }
+        } if (isWalkingUp && transform.position.y <= 5.2f) {
+            transform.Translate((Vector3.up * (speed * 0.5f) * Time.deltaTime));
+			if (transform.position.y >= 5.2f) {
+				Invoke("ChangeDirection", delayTime);
+			}           
+        }
+
+        if (!isWalkingUp && !isWalkingLeft && !isWalkingDown && !isWalkingRight) {
+            anim.SetBool("isIdle", true);
+        } 
 	}
 
     private void OnTriggerEnter2D(Collider2D collision) {
-
         GameObject obj = collision.gameObject;
         if (obj.tag == "Brick" && foxjump) {
             foxjump = false;
@@ -52,20 +64,23 @@ public class Fox : MonoBehaviour {
     }
 
     private void ChangeDirection() {
-
-        int dir = 0;
-        dir = Random.Range(1, 4);
-        Debug.Log(dir);
-        switch (dir){
+        int dirInt = 0;
+        string direction = "Right";
+        dirInt = Random.Range(1, 4);
+        Debug.Log(dirInt);
+        switch (dirInt){
             case 1:
                 //WalkingLeft
                 isWalkingLeft = true;
                 isWalkingRight = false;
                 isWalkingUp = false;
                 isWalkingDown = false;
-				GetComponent<BoxCollider2D>().offset = new Vector2(-0.38f, -0.04888678f);
-                child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
-                                                        child.transform.localScale.y, child.transform.localScale.z);
+                if (direction.Equals("Right")) {
+					direction = "Left";
+					GetComponent<BoxCollider2D>().offset = new Vector2(-0.38f, -0.04888678f);
+					child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
+										 child.transform.localScale.y, child.transform.localScale.z);
+                }
                 break;
             case 2:
                 //WalkingRight
@@ -73,9 +88,12 @@ public class Fox : MonoBehaviour {
 				isWalkingRight = true;
 				isWalkingUp = false;
 				isWalkingDown = false;
-                GetComponent<BoxCollider2D>().offset = new Vector2(0.14f, -0.04888678f);
-				child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
-									child.transform.localScale.y, child.transform.localScale.z);
+                if (direction.Equals("Left")) {
+					direction = "Right";
+					GetComponent<BoxCollider2D>().offset = new Vector2(0.18f, -0.04888678f);
+					child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
+										child.transform.localScale.y, child.transform.localScale.z);
+                }
 				break;
 			case 3:
                 isWalkingLeft = false;
@@ -90,5 +108,6 @@ public class Fox : MonoBehaviour {
 				isWalkingDown = true;
 				break;
 		}
+        Debug.Log(direction); 
     }
 }

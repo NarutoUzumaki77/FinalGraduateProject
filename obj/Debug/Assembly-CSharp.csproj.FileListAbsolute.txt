@@ -24,7 +24,6 @@
 /Users/mekzy/Documents/Repo/FinalProject/Temp/bin/Debug/UnityEngine.Analytics.dll.mdb
 /Users/mekzy/Documents/Repo/FinalProject/Temp/bin/Debug/UnityEngine.Analytics.xml
 /Users/mekzy/Documents/Repo/FinalProject/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
-/Users/mekzy/Documents/Repo/FinalProject/obj/Debug/Assembly-CSharp.csprojResolveAssemblyReference.cache
 /Users/mekzy/Documents/Repo/FinalProject/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
 /Users/mekzy/Documents/Repo/FinalProject/obj/Debug/Assembly-CSharp.dll
 /Users/mekzy/Documents/Repo/FinalProject/obj/Debug/Assembly-CSharp.pdb

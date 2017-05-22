@@ -77,6 +77,7 @@
 -define:UNITY_EDITOR_OSX
 -define:UNITY_TEAM_LICENSE
 'Assets/3D/GenerateMaze.cs'
+'Assets/Script/Colliders.cs'
 'Assets/Script/FadeOut.cs'
 'Assets/Script/Fox.cs'
 'Assets/Script/GenerateGameBorders.cs'

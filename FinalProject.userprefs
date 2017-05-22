@@ -1,7 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Fox.cs">
     <Files>
-      <File FileName="Assets/Script/Fox.cs" Line="12" Column="40" />
+      <File FileName="Assets/Script/Fox.cs" Line="87" Column="25" />
+      <File FileName="Assets/Script/Colliders.cs" Line="18" Column="13" />
       <File FileName="Assets/Script/GenerateGameBorders.cs" Line="13" Column="23" />
       <File FileName="Assets/Script/LevelManager.cs" Line="18" Column="39" />
       <File FileName="Assets/Script/NonPlayableEntities.cs" Line="1" Column="1" />
