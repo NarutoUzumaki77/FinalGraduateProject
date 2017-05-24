@@ -12,6 +12,7 @@ public class Fox : MonoBehaviour {
     private bool isWalkingDown = false;
     private float delayTime = 1.0f;
     private GameObject child;
+    private GameObject currentTarget;
 
 	// Use this for initialization
 	void Start () {
@@ -63,6 +64,24 @@ public class Fox : MonoBehaviour {
         this.speed = speed;
     }
 
+    public void Attack(GameObject obj) {
+        anim.SetBool("IsAttacking", true);
+        currentTarget = obj;
+    }
+
+    public void StopAttacking() {
+        anim.SetBool("IsAttacking", false);
+    }
+
+    public void StrikeCurrentTarget(float damage) {
+        if (currentTarget){
+			Health health = currentTarget.GetComponent<Health>();
+            if (health){
+                health.DoDamage(damage);
+            }
+        }
+    }
+
     private void ChangeDirection() {
         int dirInt = 0;
         string direction = "Right";
@@ -88,12 +107,10 @@ public class Fox : MonoBehaviour {
 				isWalkingRight = true;
 				isWalkingUp = false;
 				isWalkingDown = false;
-                if (direction.Equals("Left")) {
-					direction = "Right";
-					GetComponent<BoxCollider2D>().offset = new Vector2(0.18f, -0.04888678f);
-					child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
+                direction = "Right";
+                GetComponent<BoxCollider2D>().offset = new Vector2(0.18f, -0.04888678f);
+				child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
 										child.transform.localScale.y, child.transform.localScale.z);
-                }
 				break;
 			case 3:
                 isWalkingLeft = false;
