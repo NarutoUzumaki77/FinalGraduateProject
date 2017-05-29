@@ -34,51 +34,12 @@ public class Fox : MonoBehaviour
 		{
 			transform.Translate(Vector3.left * speed * Time.deltaTime);
 		}
-		if (isWalkingDown && transform.position.y >= 1.2f)
-		{
-			transform.Translate((Vector3.down * (speed * 0.5f) * Time.deltaTime));
-			if (transform.position.y <= 1.2f)
-			{
-				Invoke("ChangeDirection", delayTime);
-			}
-		}
-		if (isWalkingUp && transform.position.y <= 5.2f)
-		{
-			transform.Translate((Vector3.up * (speed * 0.5f) * Time.deltaTime));
-			if (transform.position.y >= 5.2f)
-			{
-				Invoke("ChangeDirection", delayTime);
-			}
-		}
 
 		if (!isWalkingUp && !isWalkingLeft && !isWalkingDown && !isWalkingRight)
 		{
 			anim.SetBool("isIdle", true);
 		}
 	}
-
-    /*
-    private void OnTriggerEnter2D(Collider2D collision)
-	{
-		GameObject obj = collision.gameObject;
-		if (obj.tag == "Brick" && foxjump)
-		{
-			foxjump = false;
-			anim.SetBool("IsJumping", true);
-		}
-		else if (obj.tag == "Brick" && !foxjump)
-		{
-			anim.SetBool("isIdle", true);
-			InvokeRepeating("ChangeDirection", delayTime, delayTime);
-		}
-	}
-
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		anim.SetBool("IsJumping", false);
-		anim.SetBool("isIdle", false);
-		CancelInvoke("ChangeDirection");
-	}*/
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -134,7 +95,6 @@ public class Fox : MonoBehaviour
 	{
 		string direction = "Right";
 		dirInt = Random.Range(1, 4);
-		//Debug.Log(dirInt);
 		switch (dirInt)
 		{
 			case 1:
@@ -160,28 +120,14 @@ public class Fox : MonoBehaviour
 				isWalkingRight = true;
 				isWalkingUp = false;
 				isWalkingDown = false;
-                //if (direction.Equals("Left"))
-                //{
-					child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
-					 child.transform.localScale.y, child.transform.localScale.z);
-                    if (child.transform.localScale.x < 0){
-                        GetComponent<BoxCollider2D>().offset = new Vector2(0.18f, -0.04888678f);
-                        direction = "Right";
-                    }
-                //}
 
-				break;
-			case 3:
-				isWalkingLeft = false;
-				isWalkingRight = false;
-				isWalkingUp = true;
-				isWalkingDown = false;
-				break;
-			case 4:
-				isWalkingLeft = false;
-				isWalkingRight = false;
-				isWalkingUp = false;
-				isWalkingDown = true;
+				child.transform.localScale = new Vector3(child.transform.localScale.x * -1,
+					 child.transform.localScale.y, child.transform.localScale.z);
+                if (child.transform.localScale.x < 0){
+                   GetComponent<BoxCollider2D>().offset = new Vector2(0.18f, -0.04888678f);
+                   direction = "Right";
+                }
+
 				break;
 		}
 	}
