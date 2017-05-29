@@ -15,11 +15,12 @@ public class PCG_MazeBricks : MonoBehaviour {
 
 		worldMap = new int[colheight, rowheight];
 
+		mazePositions.Add("9|1"); //Barn position
+
 		for (int i = 0; i < colheight; i++) {
 			for (int j = 0; j < rowheight; j++){
 				worldMap[i,j] = Mathf.RoundToInt(Random.Range(0,5));
 
-                mazePositions.Add("9|1"); //Barn position
 				if (worldMap [i,j]>=4) {
                     if (j != 8 && i != 1) {
                         float x = j + 1f;
