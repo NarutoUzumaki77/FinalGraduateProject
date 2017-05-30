@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Farmer : MonoBehaviour {
@@ -11,10 +12,18 @@ public class Farmer : MonoBehaviour {
     private bool isMovingRight;
     private bool isMovingUp;
     private bool isMovingDown;
+    private AudioSource sound;
+    public Text animalCount;
+    private static int animalCountInt;
+
+    public AudioClip snatchAnimalSound;
 
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
+        sound = GetComponent<AudioSource>();
+        sound.volume = PlayerPrefsManager.GetMasterVolume();
+        animalCountInt = 0;
         isFacingLeft = true;
         isMovingLeft = true;
         isMovingRight = true;
@@ -74,6 +83,8 @@ public class Farmer : MonoBehaviour {
             isMovingUp = false;
             isMovingDown = false;
 		}
+
+        RescueFarmAnimals(obj);
 	}
 
     private void OnCollisionExit2D(Collision2D collision) {
@@ -81,5 +92,16 @@ public class Farmer : MonoBehaviour {
         isMovingRight = true;
 		isMovingUp = true;
 		isMovingDown = true;
+    }
+
+    private void RescueFarmAnimals (GameObject animal) {
+        if (animal.GetComponent<FarmAnimal>()) {
+            sound.clip = snatchAnimalSound;
+            sound.Play();
+            GameObject parent = animal.transform.parent.gameObject;
+            Destroy(parent);
+            animalCountInt += 1;
+            animalCount.text = animalCountInt.ToString();
+        }
     }
 }
