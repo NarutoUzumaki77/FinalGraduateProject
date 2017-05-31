@@ -25,10 +25,6 @@ public class NonPlayableEntities : MonoBehaviour {
         //Generate Barn
         Instantiate(barn, new Vector3(9f, 1f), Quaternion.identity);
 
-        foreach(string nn in PCG_MazeBricks.mazePositions){
-            Debug.Log(nn); 
-        }
-
 	}
 
     private string DetermineEntityDropPosition() {

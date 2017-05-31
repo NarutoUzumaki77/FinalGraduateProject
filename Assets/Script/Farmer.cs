@@ -13,17 +13,19 @@ public class Farmer : MonoBehaviour {
     private bool isMovingUp;
     private bool isMovingDown;
     private AudioSource sound;
-    public Text animalCount;
-    private static int animalCountInt;
+    private Score score;
+	private Text animalCountText;
 
     public AudioClip snatchAnimalSound;
+
 
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
         sound = GetComponent<AudioSource>();
+        score = GetComponent<Score>();
+        animalCountText = GameObject.Find("AnimalCount").GetComponent<Text>();
         sound.volume = PlayerPrefsManager.GetMasterVolume();
-        animalCountInt = 0;
         isFacingLeft = true;
         isMovingLeft = true;
         isMovingRight = true;
@@ -100,8 +102,8 @@ public class Farmer : MonoBehaviour {
             sound.Play();
             GameObject parent = animal.transform.parent.gameObject;
             Destroy(parent);
-            animalCountInt += 1;
-            animalCount.text = animalCountInt.ToString();
+            score.SetAnimalCount();
+            animalCountText.text = score.GetAnimalCount().ToString();
         }
     }
 }
