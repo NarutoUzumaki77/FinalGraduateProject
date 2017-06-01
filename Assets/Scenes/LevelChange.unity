@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 708333838}
   - component: {fileID: 708333837}
   m_Layer: 8
-  m_Name: Core Game
+  m_Name: Core Game1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 744256547}
   - component: {fileID: 744256546}
   m_Layer: 8
-  m_Name: LevelLabel
+  m_Name: LevelLabel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 1089528982}
   - component: {fileID: 1089528981}
   m_Layer: 8
-  m_Name: LevelCanvas
+  m_Name: LevelCanvasdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,7 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340228541}
   m_Layer: 0
-  m_Name: FarmerIcon
+  m_Name: FarmerIcon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 1456169646}
   - component: {fileID: 1456169645}
   m_Layer: 8
-  m_Name: Level
+  m_Name: Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

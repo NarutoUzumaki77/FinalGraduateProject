@@ -13,11 +13,10 @@ public class Farmer : MonoBehaviour {
     private bool isMovingUp;
     private bool isMovingDown;
     private AudioSource sound;
-    private Score score;
 	private Text animalCountText;
+    private Score score;
 
     public AudioClip snatchAnimalSound;
-
 
 	// Use this for initialization
 	void Start () {
@@ -35,44 +34,51 @@ public class Farmer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Input.GetKey(KeyCode.LeftArrow)){
-            if (!isFacingLeft){
-                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-                isFacingLeft = true;
-            }
-            if (isMovingLeft) {
-				anim.SetBool("walking", true);
-				transform.Translate(Vector3.left * speed * Time.deltaTime);
-            }
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow)){
-			if (isFacingLeft){
-				transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-                isFacingLeft = false;
-			}
-            if (isMovingRight) {
-				anim.SetBool("walking", true);
-				transform.Translate(Vector3.right * speed * Time.deltaTime);
-            }
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow) && isMovingUp) {
-            anim.SetBool("walking", true);
-            transform.Translate(Vector3.up * speed * Time.deltaTime);
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow) && isMovingDown) {
-            anim.SetBool("walking", true);
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)
-                || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow)) {
-            anim.SetBool("walking", false);
+        if (!TimerLevel.isGameOver) {
+            FarmerMovement();
         }
 	}
+
+    private void FarmerMovement (){
+
+		if (Input.GetKey(KeyCode.LeftArrow)){
+			if (!isFacingLeft){
+				transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+				isFacingLeft = true;
+			}
+			if (isMovingLeft){
+				anim.SetBool("walking", true);
+				transform.Translate(Vector3.left * speed * Time.deltaTime);
+			}
+		}
+
+		if (Input.GetKey(KeyCode.RightArrow))
+		{
+			if (isFacingLeft){
+				transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+				isFacingLeft = false;
+			}
+			if (isMovingRight){
+				anim.SetBool("walking", true);
+				transform.Translate(Vector3.right * speed * Time.deltaTime);
+			}
+		}
+
+		if (Input.GetKey(KeyCode.UpArrow) && isMovingUp){
+			anim.SetBool("walking", true);
+			transform.Translate(Vector3.up * speed * Time.deltaTime);
+		}
+
+		if (Input.GetKey(KeyCode.DownArrow) && isMovingDown){
+			anim.SetBool("walking", true);
+			transform.Translate(Vector3.down * speed * Time.deltaTime);
+		}
+
+		if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)
+				|| Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow)){
+			anim.SetBool("walking", false);
+		}        
+    }
 
 	private void OnCollisionEnter2D(Collision2D collision){
 		GameObject obj = collision.gameObject;

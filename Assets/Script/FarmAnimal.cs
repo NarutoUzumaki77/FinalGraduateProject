@@ -22,8 +22,7 @@ public class FarmAnimal : MonoBehaviour {
     private void OnCollisionExit2D(Collision2D collision)
     {
 		GameObject obj = collision.gameObject;
-		if (obj.GetComponent<Fox>())
-		{
+		if (obj.GetComponent<Fox>()) {
 			obj.GetComponent<Fox>().StopAttacking();
 		}
 	}

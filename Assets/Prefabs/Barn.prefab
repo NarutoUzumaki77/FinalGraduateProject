@@ -37,8 +37,9 @@ GameObject:
   - component: {fileID: 212000011822463568}
   - component: {fileID: 50336450629309230}
   - component: {fileID: 60720263704758228}
+  - component: {fileID: 114400493181075264}
   m_Layer: 0
-  m_Name: barn-child
+  m_Name: Barn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,6 +173,17 @@ PolygonCollider2D:
       - {x: 0.19555557, y: -0.46222222}
       - {x: 0.19111112, y: -0.4}
       - {x: 0.22222222, y: -0.41333336}
+--- !u!114 &114400493181075264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012334017910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5982218aba8b44be583f3a3546e825a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000011822463568
 SpriteRenderer:
   m_ObjectHideFlags: 1

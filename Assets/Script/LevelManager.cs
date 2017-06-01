@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour {
 
 	public int splashscreentime;
-    public int level_number = 1;
+    public int level_number = 0;
 
     private string main_level = "Game_Stage";
 
@@ -18,10 +18,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void LoadRequestedLevel(string level) {
-        if (SceneManager.GetSceneByName(main_level).Equals(main_level)){
+        
+        if (level.Equals(main_level)){
             level_number++;
-            Debug.Log("add to the level number");
-        }
+		}
         SceneManager.LoadScene(level);
 	}
 

@@ -3,31 +3,42 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour {
 
-    private int animalCountInt = 0;
-    private LevelManager lm;
+	private int animalCountInt;
+	private LevelManager lm;
 	private Text level;
 
+    public static bool pickedUpAllAnimal = false;
+
 	// Use this for initialization
-	void Start () {
-        lm = FindObjectOfType<LevelManager>();
-        level = GameObject.Find("Level").GetComponent<Text>();
+	void Start()
+	{
+		lm = FindObjectOfType<LevelManager>();
+		level = GameObject.Find("Level").GetComponent<Text>();
+		level.text = lm.GetLevelNumber().ToString();
+		animalCountInt = 0;
 	}
 
-    public int GetAnimalCount() {
-        return animalCountInt;
-    }
+	public int GetAnimalCount() {
+		return animalCountInt;
+	}
 
-    public void SetAnimalCount() {
-        animalCountInt++;
-        if (FarmAnimal.animalCount == animalCountInt) {
-            lm.LoadRequestedLevel("Game_Stage");
-			level.text = lm.GetLevelNumber().ToString();
-            ResetAnimalCount();
-        }
-    }
+	public void SetAnimalCount(){
+		animalCountInt++;
+		if (FarmAnimal.animalCount.Equals(animalCountInt)){
+            pickedUpAllAnimal = true;
+		}
+	}
 
-    public void ResetAnimalCount () {
-        animalCountInt = 0;
-        FarmAnimal.animalCount = 0;
-    }
+	public void ResetAnimalCount(){
+		animalCountInt = 0;
+		FarmAnimal.animalCount = 0;
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision){
+		GameOver();
+	}
+
+	private void GameOver(){
+
+	}
 }
