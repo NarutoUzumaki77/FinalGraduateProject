@@ -125,6 +125,7 @@
     <Compile Include="Assets\Script\OptionsController.cs" />
     <Compile Include="Assets\Script\PCG_MazeBricks.cs" />
     <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
+    <Compile Include="Assets\Script\Projectile.cs" />
     <Compile Include="Assets\Script\Score.cs" />
     <Compile Include="Assets\Script\TimerLevel.cs" />
   </ItemGroup>
