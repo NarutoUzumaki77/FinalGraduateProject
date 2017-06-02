@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class FarmAnimal : MonoBehaviour {
 
+    public static int animalCount;
+
+    private void Start()
+    {
+        animalCount++;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject obj = collision.gameObject;
@@ -15,8 +22,7 @@ public class FarmAnimal : MonoBehaviour {
     private void OnCollisionExit2D(Collision2D collision)
     {
 		GameObject obj = collision.gameObject;
-		if (obj.GetComponent<Fox>())
-		{
+		if (obj.GetComponent<Fox>()) {
 			obj.GetComponent<Fox>().StopAttacking();
 		}
 	}

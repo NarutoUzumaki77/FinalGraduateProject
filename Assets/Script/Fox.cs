@@ -26,6 +26,12 @@ public class Fox : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (!TimerLevel.isGameOver){
+			FoxMovement();
+		}
+	}
+
+    private void FoxMovement () {
 		if (isWalkingRight)
 		{
 			transform.Translate(Vector3.right * speed * Time.deltaTime);
@@ -38,8 +44,8 @@ public class Fox : MonoBehaviour
 		if (!isWalkingUp && !isWalkingLeft && !isWalkingDown && !isWalkingRight)
 		{
 			anim.SetBool("isIdle", true);
-		}
-	}
+		}       
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

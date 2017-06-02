@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour {
 
 	public int splashscreentime;
+    public int level_number = 0;
+
+    private string main_level = "Game_Stage";
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +18,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void LoadRequestedLevel(string level) {
+        
+        if (level.Equals(main_level)){
+            level_number++;
+		}
         SceneManager.LoadScene(level);
 	}
 
@@ -22,4 +29,8 @@ public class LevelManager : MonoBehaviour {
 		int index = SceneManager.GetActiveScene().buildIndex;
 		SceneManager.LoadScene(index + 1);
 	}
+
+    public int GetLevelNumber(){
+        return level_number;
+    }
 }
