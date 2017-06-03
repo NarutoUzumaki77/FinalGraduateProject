@@ -31,7 +31,7 @@ public class NonPlayableEntities : MonoBehaviour {
 		Instantiate(barn, new Vector3(9f, 1f), Quaternion.identity);
     }
 
-    private string DetermineEntityDropPosition() {
+    public string DetermineEntityDropPosition() {
 
         bool posFoundinList = false;
         string position = null;

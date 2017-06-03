@@ -14,11 +14,14 @@ public class Farmer : MonoBehaviour {
     private bool isMovingDown;
     private AudioSource sound;
 	private Text animalCountText;
+    private Text appleCounter;
     private Score score;
     private GameObject shoot;
 
     public AudioClip snatchAnimalSound;
     public GameObject projectile;
+
+    public static int projectileCounter;
 
 	// Use this for initialization
 	void Start () {
@@ -26,8 +29,10 @@ public class Farmer : MonoBehaviour {
         sound = GetComponent<AudioSource>();
         score = GetComponent<Score>();
         animalCountText = GameObject.Find("AnimalCount").GetComponent<Text>();
+        appleCounter = GameObject.Find("AppleCountText").GetComponent<Text>();
         shoot = GameObject.Find("Shoot");
         sound.volume = PlayerPrefsManager.GetMasterVolume();
+        projectileCounter = 0;
         isFacingLeft = true;
         isMovingLeft = true;
         isMovingRight = true;
@@ -44,8 +49,10 @@ public class Farmer : MonoBehaviour {
 
     private void FarmerMovement (){
 
-        if (Input.GetKeyDown(KeyCode.F)) {
+        if (Input.GetKeyDown(KeyCode.F) && projectileCounter > 0) {
 
+            projectileCounter -= 1;
+            appleCounter.text = projectileCounter.ToString();
             GameObject child = transform.gameObject;
             for (int x = 0; x < transform.childCount; x++){
                 if (!transform.GetChild(x).GetComponent<SpriteRenderer>()) {
@@ -128,7 +135,7 @@ public class Farmer : MonoBehaviour {
         }
     }
 
-    public bool isFacingRight() {
-        return !isFacingLeft;
+    public bool isFacingLeftM() {
+        return isFacingLeft;
     }
 }

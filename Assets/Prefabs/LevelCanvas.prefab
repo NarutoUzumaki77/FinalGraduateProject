@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114000011195180902}
   - component: {fileID: 114000011923506636}
   - component: {fileID: 114912879250111968}
+  - component: {fileID: 114564001923267924}
   m_Layer: 8
   m_Name: LevelCanvas
   m_TagString: Untagged
@@ -173,7 +174,7 @@ GameObject:
   - component: {fileID: 222608843490661824}
   - component: {fileID: 114328106845590606}
   m_Layer: 8
-  m_Name: Lives
+  m_Name: AppleCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,7 +222,7 @@ GameObject:
   - component: {fileID: 4011465331063588}
   - component: {fileID: 212150668780734762}
   m_Layer: 0
-  m_Name: LizardIcon
+  m_Name: AppleIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,8 +299,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1569430055280832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14, y: 0.04, z: 0}
-  m_LocalScale: {x: -1.2056181, y: 1.2056183, z: 1.2056183}
+  m_LocalPosition: {x: -0.14, y: 0.13, z: 0}
+  m_LocalScale: {x: -1.0217986, y: 1.0217983, z: 1.0217983}
   m_Children: []
   m_Father: {fileID: 4008352049702926}
   m_RootOrder: 1
@@ -581,6 +582,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!114 &114564001923267924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013439451234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9497cb1f85a64d1e87b779fe71bd78b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reward: {fileID: 1208581937697668, guid: f8aeb1c749b8e4805be1a22662745c04, type: 2}
 --- !u!114 &114634397761826098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -732,7 +745,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 50309c18cf3124345ba6b9974e9a3822, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c33acbbf70c2d4c1d8e5642ce90125e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

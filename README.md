@@ -1,8 +1,10 @@
 # FinalGraduateProject
 
 *Todo
-1. Reload after winning condition
-3. Win condition after picking all animal and returning to barn
-4. Create throwing attack animation (projectile)
-5. Farmer can pickup upgrades (Plant & Iron Plant)
-6. Projectile Counter
+
+1. Remove projectile coordinate from mazePosition after picking up projectile
+2. Change Song after level Objective is met
+3. Work on projectile changing direction when farmer changes direction
+4. Introduce fox into game.
+5. Generate fox into game space
+6. Have fox walk into game...

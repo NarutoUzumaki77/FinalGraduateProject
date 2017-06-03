@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    private GameObject parent;
     private Farmer farmer;
     private float speed;
+    private float damage = 50f;
 
 	// Use this for initialization
 	void Start () {
-        parent = transform.parent.gameObject;
-        farmer = parent.GetComponent<Farmer>();
+        farmer = GameObject.FindObjectOfType<Farmer>();
         speed = 2.5f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-        /*
-        if (farmer.isFacingRight()){
-			transform.Translate(Vector3.right * speed * Time.deltaTime);
-        }else{
+        //transform.Translate(Vector3.left * speed * Time.deltaTime);
+		
+        if (farmer.isFacingLeftM()){
 			transform.Translate(Vector3.left * speed * Time.deltaTime);
-        }*/
+        }else{
+			transform.Translate(Vector3.right * speed * Time.deltaTime);
+        }
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (!collision.gameObject.GetComponent<Barn>()) {
+            if (collision.gameObject.GetComponent<FarmAnimal>()) {
+                Health health = collision.gameObject.GetComponent<Health>();
+				if (health) {
+					health.DoDamage(damage);
+				}
+            }
+			Destroy(gameObject);
+        }
+    }
 }
