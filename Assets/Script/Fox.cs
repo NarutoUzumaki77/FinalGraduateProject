@@ -6,7 +6,7 @@ public class Fox : MonoBehaviour
 
 	private float speed;
 	private Animator anim;
-	private bool foxjump = true;
+    private bool foxjump = false;
 	private bool isWalkingLeft = false;
 	private bool isWalkingRight = true;
 	private bool isWalkingUp = false;
@@ -21,6 +21,9 @@ public class Fox : MonoBehaviour
 	{
 		anim = GetComponent<Animator>();
 		child = gameObject.transform.GetChild(0).gameObject;
+        if (transform.position.x < 0) {
+            foxjump = true;
+        }
 	}
 
 	// Update is called once per frame
@@ -50,16 +53,18 @@ public class Fox : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 		GameObject obj = collision.gameObject;
-		if (obj.tag == "Brick" && foxjump)
-		{
-			foxjump = false;
-			anim.SetBool("IsJumping", true);
+        if (!obj.GetComponent<Fox>()){
+			if (obj.tag == "Brick" && foxjump)
+			{
+				foxjump = false;
+				anim.SetBool("IsJumping", true);
+			}
+			else if (obj.tag == "Brick" && !foxjump)
+			{
+				anim.SetBool("isIdle", true);
+				InvokeRepeating("ChangeDirection", delayTime, delayTime);
+			}
 		}
-		else if (obj.tag == "Brick" && !foxjump)
-		{
-			anim.SetBool("isIdle", true);
-			InvokeRepeating("ChangeDirection", delayTime, delayTime);
-		} 
     }
 
     private void OnCollisionExit2D(Collision2D collision)

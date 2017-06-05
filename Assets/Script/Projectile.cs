@@ -33,6 +33,8 @@ public class Projectile : MonoBehaviour {
 				if (health) {
 					health.DoDamage(damage);
 				}
+            } else if (collision.gameObject.GetComponent<Fox>()){
+                Destroy(collision.gameObject);
             }
 			Destroy(gameObject);
         }

@@ -22,7 +22,7 @@ public class GenerateAppleRewards : MonoBehaviour {
 			string[] posArray = position.Split('|');
 			float x = float.Parse(posArray[0]);
 			float y = float.Parse(posArray[1]);
-            GameObject apple = Instantiate(reward, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+            Instantiate(reward, new Vector3(x, y, 0f), Quaternion.identity);
 		}
         if (TimerLevel.isGameOver) {
             CancelInvoke("ProbabilityOfApple");

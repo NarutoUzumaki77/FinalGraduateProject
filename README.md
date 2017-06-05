@@ -8,14 +8,14 @@
 1. Remove projectile coordinate from mazePosition after picking up projectile (Done)
 2. Remove generated appleReward after x-Sec (Done) 
 3. Change Song after level Objective is met (Done)
-4. Introduce fox into game.
-5. Generate fox into game space
-6. Have fox walk into game...
+4. Introduce fox into game. (Done)
+5. Generate fox into game space. (Done)
+6. Have fox walk into game... (Done) <<<<<<<<<<<<<<<Check the maze value of the y coordinate>>>>>>>>>>>>>>>>>
 =====================================
 
 1. Make Score component a Singleton
 2. Recycle game stage
-3. Invisible gameover component then make visible when game ends
+3. Invisible gameover component, then make visible when game ends
 =====================================
 
 1. Farmer Dies... Show play summary and score 

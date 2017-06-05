@@ -34,11 +34,9 @@ public class Score : MonoBehaviour {
 		FarmAnimal.animalCount = 0;
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision){
-		GameOver();
-	}
-
-	private void GameOver(){
-
+	private void Update(){
+		if (FarmAnimal.animalCount.Equals(animalCountInt)) {
+			pickedUpAllAnimal = true;
+		}
 	}
 }

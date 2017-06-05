@@ -122,7 +122,12 @@ public class Farmer : MonoBehaviour {
             isMovingUp = false;
             isMovingDown = false;
 		}
+
+        if (obj.GetComponent<Fox>()) {
+            TimerLevel.isGameOver = true;
+        }
         RescueFarmAnimals(obj);
+
 	}
 
     private void OnCollisionExit2D(Collision2D collision) {

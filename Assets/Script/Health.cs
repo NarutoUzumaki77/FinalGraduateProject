@@ -20,12 +20,13 @@ public class Health : MonoBehaviour {
 		parent = gameObject.transform.parent.gameObject;
 		childcount = parent.transform.childCount;
         if (health <= 0) {
+			FarmAnimal.animalCount -= 1;
+			npc.RemovePositionFromGrid(parent);
+            Debug.Log(FarmAnimal.animalCount);
             if (parent){
                 Destroy(parent);
             }
-			FarmAnimal.animalCount -= 1;
             Destroy(gameObject);
-			npc.RemovePositionFromGrid(parent);
         }else {
             SwitchHealthBar();
         }
