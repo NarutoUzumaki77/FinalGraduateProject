@@ -53,4 +53,18 @@ public class NonPlayableEntities : MonoBehaviour {
 
         return position;
     }
+
+	public void RemovePositionFromGrid(GameObject obj) {
+		/*
+        for (int i = 0; i < PCG_MazeBricks.mazePositions.Count; i++){
+            Debug.Log(PCG_MazeBricks.mazePositions[i]);
+        }*/
+		string cord = Mathf.RoundToInt(obj.transform.position.x) + "|" + Mathf.RoundToInt(obj.transform.position.y);
+		int indexOfCord = PCG_MazeBricks.mazePositions.IndexOf(cord);
+        if (indexOfCord >= 0){
+			PCG_MazeBricks.mazePositions.RemoveAt(indexOfCord);
+        }else {
+            Debug.LogError("Unable to Remove Cordinate, no matching position on Grid");
+        }
+	}
 }

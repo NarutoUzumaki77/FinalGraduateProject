@@ -17,6 +17,9 @@ public class Farmer : MonoBehaviour {
     private Text appleCounter;
     private Score score;
     private GameObject shoot;
+	private float newX;
+	private float newY;
+	private NonPlayableEntities npc;
 
     public AudioClip snatchAnimalSound;
     public GameObject projectile;
@@ -31,6 +34,7 @@ public class Farmer : MonoBehaviour {
         animalCountText = GameObject.Find("AnimalCount").GetComponent<Text>();
         appleCounter = GameObject.Find("AppleCountText").GetComponent<Text>();
         shoot = GameObject.Find("Shoot");
+        npc = GameObject.FindObjectOfType<NonPlayableEntities>();
         sound.volume = PlayerPrefsManager.GetMasterVolume();
         projectileCounter = 0;
         isFacingLeft = true;
@@ -39,13 +43,18 @@ public class Farmer : MonoBehaviour {
         isMovingUp = true;
         isMovingDown = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update()
+    {
+        //Restricting Player movement within boundaries
+        newX = Mathf.Clamp(transform.position.x, 1.0f, 9.0f);
+        newY = Mathf.Clamp(transform.position.y, 1.0f, 5.0f);
+        transform.position = new Vector3(newX, newY, transform.position.z);
+
         if (!TimerLevel.isGameOver) {
             FarmerMovement();
         }
-	}
+    }
 
     private void FarmerMovement (){
 
@@ -113,7 +122,6 @@ public class Farmer : MonoBehaviour {
             isMovingUp = false;
             isMovingDown = false;
 		}
-
         RescueFarmAnimals(obj);
 	}
 
@@ -130,6 +138,7 @@ public class Farmer : MonoBehaviour {
             sound.Play();
             GameObject parent = animal.transform.parent.gameObject;
             Destroy(parent);
+            npc.RemovePositionFromGrid(parent);
             score.SetAnimalCount();
             animalCountText.text = score.GetAnimalCount().ToString();
         }

@@ -259,14 +259,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013538190028, guid: 4a2706494b9bc48c0abb7d6575246afa,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1000012772316898, guid: 4a2706494b9bc48c0abb7d6575246afa, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Name
+      value: NonPlayableEntities
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a2706494b9bc48c0abb7d6575246afa, type: 2}
@@ -506,6 +501,11 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 82842628476859808, guid: f6ab1003b7db043a388e628c2aee8129,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6ab1003b7db043a388e628c2aee8129, type: 2}

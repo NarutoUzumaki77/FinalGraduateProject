@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{19722274-1DCD-A500-227F-F45CF1529AE2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Projectile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Barn.cs">
     <Files>
-      <File FileName="Assets/Script/NonPlayableEntities.cs" Line="39" Column="11" />
-      <File FileName="Assets/Script/Score.cs" Line="15" Column="41" />
-      <File FileName="Assets/Script/TimerLevel.cs" Line="30" Column="2" />
-      <File FileName="Assets/Script/Farmer.cs" Line="26" Column="32" />
-      <File FileName="Assets/Script/Projectile.cs" Line="38" Column="10" />
-      <File FileName="Assets/Script/Health.cs" Line="13" Column="25" />
-      <File FileName="Assets/Script/Fox.cs" Line="90" Column="1" />
+      <File FileName="Assets/Script/AppleReward.cs" Line="12" Column="31" />
+      <File FileName="Assets/Script/GenerateAppleRewards.cs" Line="17" Column="5" />
+      <File FileName="Assets/Script/TimerLevel.cs" Line="23" Column="50" />
+      <File FileName="Assets/Script/Farmer.cs" Line="54" Column="34" />
+      <File FileName="Assets/Script/Score.cs" Line="38" Column="14" />
+      <File FileName="Assets/Script/Barn.cs" Line="11" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

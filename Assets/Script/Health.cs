@@ -9,6 +9,11 @@ public class Health : MonoBehaviour {
 
     private GameObject parent;
     private int childcount;
+	private NonPlayableEntities npc;
+
+    private void Start() {
+        npc = GameObject.FindObjectOfType<NonPlayableEntities>();
+    }
 
     public void DoDamage(float damage) {
         health -= damage;
@@ -18,7 +23,9 @@ public class Health : MonoBehaviour {
             if (parent){
                 Destroy(parent);
             }
+			FarmAnimal.animalCount -= 1;
             Destroy(gameObject);
+			npc.RemovePositionFromGrid(parent);
         }else {
             SwitchHealthBar();
         }

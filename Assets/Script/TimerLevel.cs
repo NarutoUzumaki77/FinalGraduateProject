@@ -19,9 +19,7 @@ public class TimerLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (isGameOver) {
-            PCG_MazeBricks.mazePositions.Clear();
-        }else{
+        if (!isGameOver) {
 			ftime -= Time.deltaTime;
 			timer = (int)ftime;
 			timeText.text = "000" + timer.ToString(); 
