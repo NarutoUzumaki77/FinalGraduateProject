@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{19722274-1DCD-A500-227F-F45CF1529AE2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Fox.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Projectile.cs">
     <Files>
       <File FileName="Assets/Script/NonPlayableEntities.cs" Line="39" Column="11" />
       <File FileName="Assets/Script/Score.cs" Line="15" Column="41" />
       <File FileName="Assets/Script/TimerLevel.cs" Line="30" Column="2" />
       <File FileName="Assets/Script/Farmer.cs" Line="26" Column="32" />
-      <File FileName="Assets/Script/Projectile.cs" Line="33" Column="2" />
-      <File FileName="Assets/Script/Health.cs" Line="18" Column="25" />
-      <File FileName="Assets/Script/Fox.cs" Line="107" Column="18" />
+      <File FileName="Assets/Script/Projectile.cs" Line="38" Column="10" />
+      <File FileName="Assets/Script/Health.cs" Line="13" Column="25" />
+      <File FileName="Assets/Script/Fox.cs" Line="90" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
