@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour {
     private float speed;
     private float damage = 50f;
 
+    public static int foxCount = 0;
+
 	// Use this for initialization
 	void Start () {
         farmer = GameObject.FindObjectOfType<Farmer>();
@@ -35,6 +37,7 @@ public class Projectile : MonoBehaviour {
 				}
             } else if (collision.gameObject.GetComponent<Fox>()){
                 Destroy(collision.gameObject);
+                foxCount += 100;
             }
 			Destroy(gameObject);
         }

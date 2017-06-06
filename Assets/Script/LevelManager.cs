@@ -3,34 +3,28 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
 	public int splashscreentime;
-    public int level_number = 0;
-
-    private string main_level = "Game_Stage";
 
 	// Use this for initialization
-	void Start () {
-		if (splashscreentime >= 1) {
-			Invoke ("LoadNextLevel", splashscreentime);
+	void Start()
+	{
+		if (splashscreentime >= 1)
+		{
+			Invoke("LoadNextLevel", splashscreentime);
 		}
 	}
 
-	public void LoadRequestedLevel(string level) {
-        
-        if (level.Equals(main_level)){
-            level_number++;
-		}
-        SceneManager.LoadScene(level);
+	public void LoadRequestedLevel(string level)
+	{
+		SceneManager.LoadScene(level);
 	}
 
-	public void LoadNextLevel() {
+	public void LoadNextLevel()
+	{
 		int index = SceneManager.GetActiveScene().buildIndex;
 		SceneManager.LoadScene(index + 1);
 	}
-
-    public int GetLevelNumber(){
-        return level_number;
-    }
 }

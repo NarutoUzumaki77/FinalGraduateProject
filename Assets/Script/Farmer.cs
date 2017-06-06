@@ -51,7 +51,7 @@ public class Farmer : MonoBehaviour {
         newY = Mathf.Clamp(transform.position.y, 1.0f, 5.0f);
         transform.position = new Vector3(newX, newY, transform.position.z);
 
-        if (!TimerLevel.isGameOver) {
+        if (!TimerLevel.isLevelComplete) {
             FarmerMovement();
         }
     }
@@ -124,7 +124,7 @@ public class Farmer : MonoBehaviour {
 		}
 
         if (obj.GetComponent<Fox>()) {
-            TimerLevel.isGameOver = true;
+            TimerLevel.isLevelComplete = true;
         }
         RescueFarmAnimals(obj);
 

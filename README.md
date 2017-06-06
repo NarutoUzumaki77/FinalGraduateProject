@@ -10,15 +10,23 @@
 3. Change Song after level Objective is met (Done)
 4. Introduce fox into game. (Done)
 5. Generate fox into game space. (Done)
-6. Have fox walk into game... (Done) <<<<<<<<<<<<<<<Check the maze value of the y coordinate>>>>>>>>>>>>>>>>>
+6. Have fox walk into game... (WIP) <<<<<<<<<<<<<<<Check the maze value of the y coordinate>>>>>>>>>>>>>>>>>
 =====================================
 
-1. Make Score component a Singleton
-2. Recycle game stage
-3. Invisible gameover component, then make visible when game ends
+1. High Score
+2. Recycle game stage	(Done)
+3. Invisible gameover component, then make visible when game ends (Done)
 =====================================
 
 1. Farmer Dies... Show play summary and score 
 2. Change Song when objective is failed
 3. Work on projectile changing direction when farmer changes direction
 
+
+
+Identified Defects
+===================
+"Unable to remove Coordinate, no matching position on grid"
+Remove walking fox when objective complete or game is over
+Farmer should not be able to move diagonally
+Reset AppleReward Counter, after objective is complete or gameover
