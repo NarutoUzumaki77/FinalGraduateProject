@@ -20,6 +20,7 @@ public class Farmer : MonoBehaviour {
 	private float newX;
 	private float newY;
 	private NonPlayableEntities npc;
+    private LevelManager levelManager;
 
     public AudioClip snatchAnimalSound;
     public GameObject projectile;
@@ -33,6 +34,7 @@ public class Farmer : MonoBehaviour {
         score = GetComponent<Score>();
         animalCountText = GameObject.Find("AnimalCount").GetComponent<Text>();
         appleCounter = GameObject.Find("AppleCountText").GetComponent<Text>();
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
         shoot = GameObject.Find("Shoot");
         npc = GameObject.FindObjectOfType<NonPlayableEntities>();
         sound.volume = PlayerPrefsManager.GetMasterVolume();
@@ -125,10 +127,16 @@ public class Farmer : MonoBehaviour {
 
         if (obj.GetComponent<Fox>()) {
             TimerLevel.isLevelComplete = true;
+            anim.SetBool("walking", false);
+            Invoke("GameOver", 2f);
         }
         RescueFarmAnimals(obj);
 
 	}
+
+    private void GameOver() {
+        levelManager.LoadNextLevel();
+    }
 
     private void OnCollisionExit2D(Collision2D collision) {
         isMovingLeft = true;

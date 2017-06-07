@@ -15,6 +15,7 @@ public class Score : MonoBehaviour
     private Text levelSummary;
     private Text scoreSummary;
     private Text highScoreSummary;
+    private Text animalCount;
 
     private GameObject pcg_MazeBricks;
     private GameObject nonplayableEntities;
@@ -30,10 +31,10 @@ public class Score : MonoBehaviour
         maze = pcg_MazeBricks.GetComponent<PCG_MazeBricks>();
 
         nonplayableEntities = GameObject.Find("NonPlayableEntities");
-        npc = pcg_MazeBricks.GetComponent<NonPlayableEntities>();
+        npc = nonplayableEntities.GetComponent<NonPlayableEntities>();
 
         gfox = GameObject.Find("GenerateFox");
-        generatefox = pcg_MazeBricks.GetComponent<GenerateFox>();
+        generatefox = gfox.GetComponent<GenerateFox>();
 
 		gamesummary = GameObject.Find("GameSummary");
         levelSummary = GameObject.Find("LevelInt").GetComponent<Text>();
@@ -43,6 +44,7 @@ public class Score : MonoBehaviour
 
 		level_number = 1;
 		level = GameObject.Find("Level").GetComponent<Text>();
+        animalCount = GameObject.Find("AnimalCount").GetComponent<Text>();
 		level.text = level_number.ToString();
 		animalCountInt = 0;
 	}
@@ -58,7 +60,7 @@ public class Score : MonoBehaviour
 
 		//Disable fox, maze and FarmAnimal
 		if (pcg_MazeBricks.activeSelf){
-				SetGameObjectVisibility(false);
+			SetGameObjectVisibility(false);
 		}
 		Invoke("RecycleGame", summaryViewTime);
     }
@@ -83,20 +85,20 @@ public class Score : MonoBehaviour
 
 	public void ResetAnimalCount() {
 		animalCountInt = 0;
+        animalCount.text = animalCountInt.ToString();
 		FarmAnimal.animalCount = 0;
-		level_number++;
-		level.text = level_number.ToString();
 	}
 
 	private void calculateScore() {
         score = (TimerLevel.timer * animalCountInt) + Projectile.foxCount; 
         scoreSummary.text = score.ToString();
         levelSummary.text = level_number.ToString();
-        // Add high Score from ManagerPref
+        highScoreSummary.text = PlayerPrefsManager.GetHighestScore().ToString();
 	}
 
 	private void RecycleGame() {
 
+		pickedUpAllAnimal = false;
         TimerLevel.isLevelComplete = false;
         TimerLevel.ftime = 120f;
         level_number++;
@@ -109,17 +111,16 @@ public class Score : MonoBehaviour
         ClearChildGameObjects(gfox);
 		PCG_MazeBricks.mazePositions.Clear();
 
-        //regenerate maze, fox and farmanimals
-        maze.GenerateMaze(); // maze
-        //npc.GenerateNPC(); //FarmAnimals
-        //generatefox.InstantiateFox(); // fox
-
 		//Enable fox, maze and FarmAnimal
 		if (!pcg_MazeBricks.activeSelf) {
 			SetGameObjectVisibility(true);
 		}
 
-		pickedUpAllAnimal = false;
+        //regenerate maze, fox and farmanimals
+        maze.GenerateMaze(); // maze
+        npc.GenerateNPC(); //FarmAnimals
+        generatefox.InstantiateFox(); // fox
+
 	}
 
     private void ClearChildGameObjects(GameObject obj) {

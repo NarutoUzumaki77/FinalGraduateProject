@@ -118,6 +118,7 @@
     <Compile Include="Assets\Script\FarmAnimal.cs" />
     <Compile Include="Assets\Script\Farmer.cs" />
     <Compile Include="Assets\Script\Fox.cs" />
+    <Compile Include="Assets\Script\GameOver.cs" />
     <Compile Include="Assets\Script\GenerateAppleRewards.cs" />
     <Compile Include="Assets\Script\GenerateFox.cs" />
     <Compile Include="Assets\Script\GenerateGameBorders.cs" />

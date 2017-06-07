@@ -6,6 +6,7 @@ public class PlayerPrefsManager : MonoBehaviour {
 	const string MASTER_VOLUME_KEY = "master_volume";
 	const string DIFFICULTY_KEY = "difficulty";
 	const string LEVEL_KEY = "level_unlocked_";
+    const string HSCORE_KEY = "highest_score";
 
 	public static void SetMasterVolume (float volume) {
 		if (volume >= 0f && volume <= 1f) {
@@ -31,5 +32,15 @@ public class PlayerPrefsManager : MonoBehaviour {
 	public static float GetDifficulty () {
 		return PlayerPrefs.GetFloat(DIFFICULTY_KEY);
 	}
+
+    public static void SetHighestScore(int highscore) {
+        if (highscore > 0) {
+            PlayerPrefs.SetInt(HSCORE_KEY, highscore);
+        }
+    }
+
+    public static float GetHighestScore() {
+        return PlayerPrefs.GetInt(HSCORE_KEY, 0);
+    }
 
 }

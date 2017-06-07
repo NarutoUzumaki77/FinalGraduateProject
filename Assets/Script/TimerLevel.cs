@@ -15,7 +15,6 @@ public class TimerLevel : MonoBehaviour {
 		ftime = 120f;
 		timeText = GameObject.Find("Time").GetComponent<Text>();
         isLevelComplete = false;
-        isGameOver = false;
 	}
 
 	// Update is called once per frame
