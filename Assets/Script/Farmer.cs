@@ -14,11 +14,18 @@ public class Farmer : MonoBehaviour {
     private bool isMovingDown;
     private AudioSource sound;
 	private Text animalCountText;
+    private Text appleCounter;
     private Score score;
     private GameObject shoot;
+	private float newX;
+	private float newY;
+	private NonPlayableEntities npc;
+    private LevelManager levelManager;
 
     public AudioClip snatchAnimalSound;
     public GameObject projectile;
+
+    public static int projectileCounter;
 
 	// Use this for initialization
 	void Start () {
@@ -26,26 +33,37 @@ public class Farmer : MonoBehaviour {
         sound = GetComponent<AudioSource>();
         score = GetComponent<Score>();
         animalCountText = GameObject.Find("AnimalCount").GetComponent<Text>();
+        appleCounter = GameObject.Find("AppleCountText").GetComponent<Text>();
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
         shoot = GameObject.Find("Shoot");
+        npc = GameObject.FindObjectOfType<NonPlayableEntities>();
         sound.volume = PlayerPrefsManager.GetMasterVolume();
+        projectileCounter = 0;
         isFacingLeft = true;
         isMovingLeft = true;
         isMovingRight = true;
         isMovingUp = true;
         isMovingDown = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (!TimerLevel.isGameOver) {
+
+    void Update()
+    {
+        //Restricting Player movement within boundaries
+        newX = Mathf.Clamp(transform.position.x, 1.0f, 9.0f);
+        newY = Mathf.Clamp(transform.position.y, 1.0f, 5.0f);
+        transform.position = new Vector3(newX, newY, transform.position.z);
+
+        if (!TimerLevel.isLevelComplete) {
             FarmerMovement();
         }
-	}
+    }
 
     private void FarmerMovement (){
 
-        if (Input.GetKeyDown(KeyCode.F)) {
+        if (Input.GetKeyDown(KeyCode.F) && projectileCounter > 0) {
 
+            projectileCounter -= 1;
+            appleCounter.text = projectileCounter.ToString();
             GameObject child = transform.gameObject;
             for (int x = 0; x < transform.childCount; x++){
                 if (!transform.GetChild(x).GetComponent<SpriteRenderer>()) {
@@ -107,8 +125,18 @@ public class Farmer : MonoBehaviour {
             isMovingDown = false;
 		}
 
+        if (obj.GetComponent<Fox>()) {
+            TimerLevel.isLevelComplete = true;
+            anim.SetBool("walking", false);
+            Invoke("GameOver", 2f);
+        }
         RescueFarmAnimals(obj);
+
 	}
+
+    private void GameOver() {
+        levelManager.LoadNextLevel();
+    }
 
     private void OnCollisionExit2D(Collision2D collision) {
         isMovingLeft = true;
@@ -123,12 +151,13 @@ public class Farmer : MonoBehaviour {
             sound.Play();
             GameObject parent = animal.transform.parent.gameObject;
             Destroy(parent);
+            npc.RemovePositionFromGrid(parent);
             score.SetAnimalCount();
             animalCountText.text = score.GetAnimalCount().ToString();
         }
     }
 
-    public bool isFacingRight() {
-        return !isFacingLeft;
+    public bool isFacingLeftM() {
+        return isFacingLeft;
     }
 }

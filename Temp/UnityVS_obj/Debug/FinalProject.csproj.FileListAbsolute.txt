@@ -1,4 +1,3 @@
-/Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_obj/Debug/FinalProject.csprojResolveAssemblyReference.cache
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_obj/Debug/FinalProject.csproj.CoreCompileInputs.cache
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_bin/Debug/Assembly-CSharp.dll
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_bin/Debug/Assembly-CSharp.pdb

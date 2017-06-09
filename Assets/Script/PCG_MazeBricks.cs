@@ -2,23 +2,24 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PCG_MazeBricks : MonoBehaviour {
+public class PCG_MazeBricks : MonoBehaviour
+{
 
 	public GameObject brick;
 	public int colheight;
 	public int rowheight;
-    public static List<string> mazePositions = new List<string>();
+	public static List<string> mazePositions = new List<string>();
 
-	private int [,] worldMap;
+	private int[,] worldMap;
 
-	void Start () {
-
+	void Start()
+	{
 		worldMap = new int[colheight, rowheight];
-
-        GenerateMaze();
+		GenerateMaze();
 	}
 
-    public void GenerateMaze() {
+	public void GenerateMaze()
+	{
 		mazePositions.Add("9|1"); //Barn position
 
 		for (int i = 0; i < colheight; i++)
@@ -42,5 +43,5 @@ public class PCG_MazeBricks : MonoBehaviour {
 				}
 			}
 		}
-    }
+	}
 }
