@@ -11,9 +11,13 @@ public class GenerateAppleRewards : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        npc = GameObject.FindObjectOfType<NonPlayableEntities>();
-        InvokeRepeating("ProbabilityOfApple", 10f, 0.1f);
+        GenerateApples();
 	}
+
+    public void GenerateApples() {
+		npc = GameObject.FindObjectOfType<NonPlayableEntities>();
+		InvokeRepeating("ProbabilityOfApple", 10f, 0.1f);
+    }
 
     private void ProbabilityOfApple() {
 		float probability = Time.deltaTime * frequency;
@@ -22,7 +26,8 @@ public class GenerateAppleRewards : MonoBehaviour {
 			string[] posArray = position.Split('|');
 			float x = float.Parse(posArray[0]);
 			float y = float.Parse(posArray[1]);
-            Instantiate(reward, new Vector3(x, y, 0f), Quaternion.identity);
+            GameObject apple = Instantiate(reward, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+            apple.transform.parent = this.transform;
 		}
         if (TimerLevel.isLevelComplete) {
             CancelInvoke("ProbabilityOfApple");

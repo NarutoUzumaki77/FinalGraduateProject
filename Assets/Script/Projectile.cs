@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour {
     private Farmer farmer;
     private float speed;
     private float damage = 50f;
+    private bool facingLeft;
 
     public static int foxCount = 0;
 
@@ -14,14 +15,12 @@ public class Projectile : MonoBehaviour {
 	void Start () {
         farmer = GameObject.FindObjectOfType<Farmer>();
         speed = 2.5f;
+        facingLeft = farmer.isFacingLeftM();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        //transform.Translate(Vector3.left * speed * Time.deltaTime);
-		
-        if (farmer.isFacingLeftM()){
+        if (facingLeft){
 			transform.Translate(Vector3.left * speed * Time.deltaTime);
         }else{
 			transform.Translate(Vector3.right * speed * Time.deltaTime);

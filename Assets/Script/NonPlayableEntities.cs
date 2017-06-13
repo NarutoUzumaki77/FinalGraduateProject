@@ -14,12 +14,10 @@ public class NonPlayableEntities : MonoBehaviour
 		GenerateNPC();
 	}
 
-	public void GenerateNPC()
-	{
+	public void GenerateNPC() {
 		npeSize = entity.Length * Mathf.RoundToInt(PlayerPrefsManager.GetDifficulty());
 
-		for (int i = 0; i < npeSize; i++)
-		{
+		for (int i = 0; i < npeSize; i++) {
 			string position = DetermineEntityDropPosition();
 			string[] posArray = position.Split('|');
 			float x = float.Parse(posArray[0]);
@@ -33,9 +31,7 @@ public class NonPlayableEntities : MonoBehaviour
 		Instantiate(barn, new Vector3(9f, 1f), Quaternion.identity);
 	}
 
-	public string DetermineEntityDropPosition()
-	{
-
+	public string DetermineEntityDropPosition() {
 		bool posFoundinList = false;
 		string position = null;
 
@@ -59,20 +55,19 @@ public class NonPlayableEntities : MonoBehaviour
 		return position;
 	}
 
-	public void RemovePositionFromGrid(GameObject obj)
-	{
-		/*
+	public void RemovePositionFromGrid(GameObject obj){
+        /*
+        string z = "";
         for (int i = 0; i < PCG_MazeBricks.mazePositions.Count; i++){
-            Debug.Log(PCG_MazeBricks.mazePositions[i]);
-        }*/
+            z += PCG_MazeBricks.mazePositions[i] + ", ";
+        } 
+        Debug.Log(z); */
 		string cord = Mathf.RoundToInt(obj.transform.position.x) + "|" + Mathf.RoundToInt(obj.transform.position.y);
 		int indexOfCord = PCG_MazeBricks.mazePositions.IndexOf(cord);
-		if (indexOfCord >= 0)
-		{
+		if (indexOfCord >= 0) {
 			PCG_MazeBricks.mazePositions.RemoveAt(indexOfCord);
 		}
-		else
-		{
+		else {
 			Debug.LogError("Unable to Remove Cordinate, no matching position on Grid");
 		}
 	}

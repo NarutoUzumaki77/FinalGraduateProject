@@ -42,7 +42,9 @@ public class Fox : MonoBehaviour
 
 		if (!TimerLevel.isLevelComplete) {
 			FoxMovement();
-		}
+        }else {
+            anim.SetBool("isIdle", true);
+        }
 	}
 
 	private void FoxMovement(){

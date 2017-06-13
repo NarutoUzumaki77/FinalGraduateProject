@@ -6,17 +6,19 @@ public class Barn : MonoBehaviour{
 
 	public AudioClip questComplete;
 
-	public void OnCollisionEnter2D(Collision2D collision) {
+    public void OnCollisionEnter2D(Collision2D collision) {
 		GameObject obj = collision.gameObject;
 		if (obj.GetComponent<Farmer>()) {
-			if (Score.pickedUpAllAnimal) {
+            if (PcgGenerator.pickedUpAllAnimal) {
+                PcgGenerator.pickedUpAllAnimal = false;
 				TimerLevel.isLevelComplete = true;
-                obj.GetComponent<Score>().StopPlay();
+                obj.GetComponent<PcgGenerator>().StopPlay();
 				obj.GetComponent<AudioSource>().clip = questComplete;
 				obj.GetComponent<AudioSource>().Play();
 				PCG_MazeBricks.mazePositions.Clear();
 				obj.GetComponent<Animator>().SetBool("walking", false);
 			}
 		}
+        Debug.Log(PcgGenerator.pickedUpAllAnimal); 
 	}
 }
