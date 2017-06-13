@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{19722274-1DCD-A500-227F-F45CF1529AE2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/PlayerPrefsManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/FarmAnimal.cs">
     <Files>
-      <File FileName="Assets/Script/Farmer.cs" Line="153" Column="29" />
+      <File FileName="Assets/Script/Farmer.cs" Line="145" Column="68" />
       <File FileName="Assets/Script/AppleReward.cs" Line="30" Column="43" />
       <File FileName="Assets/Script/GenerateAppleRewards.cs" Line="8" Column="37" />
-      <File FileName="Assets/Script/Barn.cs" Line="22" Column="52" />
-      <File FileName="Assets/Script/NonPlayableEntities.cs" Line="64" Column="25" />
-      <File FileName="Assets/Script/PcgGenerator.cs" Line="55" Column="1" />
-      <File FileName="Assets/Script/ScoreKeeper.cs" Line="42" Column="2" />
-      <File FileName="Assets/Script/PlayerPrefsManager.cs" Line="43" Column="9" />
+      <File FileName="Assets/Script/Barn.cs" Line="11" Column="36" />
+      <File FileName="Assets/Script/ScoreKeeper.cs" Line="57" Column="5" />
+      <File FileName="Assets/Script/GameOver.cs" Line="45" Column="43" />
+      <File FileName="Assets/Script/PcgGenerator.cs" Line="18" Column="44" />
+      <File FileName="Assets/Script/FarmAnimal.cs" Line="11" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

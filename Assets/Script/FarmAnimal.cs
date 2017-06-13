@@ -6,8 +6,7 @@ public class FarmAnimal : MonoBehaviour {
 
     public static int animalCount;
 
-    private void Start()
-    {
+    private void Start() {
         animalCount++;
     }
 

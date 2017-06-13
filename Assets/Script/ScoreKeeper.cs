@@ -11,6 +11,7 @@ public class ScoreKeeper : MonoBehaviour {
 	private int score = 0;
 	private TimerLevel level;
     private PcgGenerator pcg;
+    private int level_number;
 
     static ScoreKeeper instance = null;
 
@@ -21,7 +22,7 @@ public class ScoreKeeper : MonoBehaviour {
 		}
 		else {
 			instance = this;
-			GameObject.DontDestroyOnLoad(gameObject);
+			DontDestroyOnLoad(gameObject);
 		}
 	}
 
@@ -39,11 +40,24 @@ public class ScoreKeeper : MonoBehaviour {
 		scoreSummary.text = score.ToString();
 		levelSummary.text = level.GetLevel().ToString();
 		highScoreSummary.text = PlayerPrefsManager.GetHighestScore().ToString();
+        level_number = level.GetLevel();
 	}
 	
-    private void SetHighScore(int score) {
+    public void SetHighScore(int score) {
         if (score > PlayerPrefsManager.GetHighestScore()) {
             PlayerPrefsManager.SetHighestScore(score);
         }
+    }
+
+    public int GetScore() {
+        return score;
+    }
+
+	public void ResetScore(){
+		score = 0;
+	}
+
+    public int GetLevel() {
+        return level_number;
     }
 }

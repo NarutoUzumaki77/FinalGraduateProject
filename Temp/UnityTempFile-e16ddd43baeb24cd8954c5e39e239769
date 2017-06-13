@@ -99,6 +99,7 @@
 'Assets/Script/PcgGenerator.cs'
 'Assets/Script/PlayerPrefsManager.cs'
 'Assets/Script/Projectile.cs'
+'Assets/Script/ScoreKeeper.cs'
 'Assets/Script/TimerLevel.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'

@@ -127,6 +127,7 @@ public class Farmer : MonoBehaviour {
 	}
 
     private void GameOver() {
+        generator.ResetAnimalCount();
         levelManager.LoadNextLevel();
     }
 
@@ -146,6 +147,9 @@ public class Farmer : MonoBehaviour {
             npc.RemovePositionFromGrid(parent);
             generator.SetAnimalCount();
             animalCountText.text = generator.GetAnimalCount().ToString();
+            Debug.Log(generator.GetAnimalCount());
+            Debug.Log(FarmAnimal.animalCount); 
+            Debug.Log("");
         }
     }
 

@@ -35,8 +35,8 @@ public class PcgGenerator : MonoBehaviour
         nonplayableEntities = GameObject.Find("NonPlayableEntities");
         npc = nonplayableEntities.GetComponent<NonPlayableEntities>();
 
-		//gfox = GameObject.Find("GenerateFox");
-		//generatefox = gfox.GetComponent<GenerateFox>();
+		gfox = GameObject.Find("GenerateFox");
+		generatefox = gfox.GetComponent<GenerateFox>();
 
 		gamesummary = GameObject.Find("GameSummary");
         gamesummary.SetActive(false);
@@ -62,7 +62,7 @@ public class PcgGenerator : MonoBehaviour
 
     private void SetGameObjectVisibility(bool isActive) {
         pcg_MazeBricks.SetActive(isActive);
-		//gfox.SetActive(isActive);
+		gfox.SetActive(isActive);
 		nonplayableEntities.SetActive(isActive);
         gamesummary.SetActive(!isActive);
 	}
@@ -95,7 +95,7 @@ public class PcgGenerator : MonoBehaviour
 
         ClearChildGameObjects(pcg_MazeBricks);
         ClearChildGameObjects(nonplayableEntities);
-        //ClearChildGameObjects(gfox);
+        ClearChildGameObjects(gfox);
 		PCG_MazeBricks.mazePositions.Clear();
 
 		//Enable fox, maze and FarmAnimal
@@ -106,7 +106,7 @@ public class PcgGenerator : MonoBehaviour
         //regenerate maze, fox and farmanimals
         maze.GenerateMaze(); // maze
         npc.GenerateNPC(); //FarmAnimals
-        //generatefox.InstantiateFox(); // fox
+        generatefox.InstantiateFox(); // fox
         geneAppleRewards.GenerateApples();
 
 	}

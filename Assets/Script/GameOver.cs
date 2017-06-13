@@ -1,23 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
 
-    private PcgGenerator score;
+    private ScoreKeeper score;
+    private LevelManager lm;
 
-	// Use this for initialization
-	void Start () {
-        score = GameObject.FindObjectOfType<PcgGenerator>();
-        if (score){
-            Debug.Log("score found"); 
-        } else {
-            Debug.Log("score not found"); 
+	private Text levelSummary;
+	private Text scoreSummary;
+	private Text highScoreSummary;
+    private Text congrats;
+
+    // Use this for initialization
+    void Start(){
+        score = GameObject.FindObjectOfType<ScoreKeeper>();
+        lm = GameObject.FindObjectOfType<LevelManager>();
+		congrats = GameObject.Find("Congrats").GetComponent<Text>();
+        if (score) {
+            score.SetHighScore(score.GetScore());
+            DisplayScoreSummary();
+        }else {
+            Debug.LogError("Score Keeper not Found");
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    private void DisplayScoreSummary() {
+		levelSummary = GameObject.Find("LevelInt").GetComponent<Text>();
+		scoreSummary = GameObject.Find("ScoreInt").GetComponent<Text>();
+		highScoreSummary = GameObject.Find("HighScoreInt").GetComponent<Text>();
+
+        levelSummary.text = score.GetLevel().ToString();
+        scoreSummary.text = score.GetScore().ToString();
+        highScoreSummary.text = PlayerPrefsManager.GetHighestScore().ToString();
+
+        if (score.GetScore() >= PlayerPrefsManager.GetHighestScore()) {
+            congrats.text = "Congratulations!!! You set a new High Score";
+        }else {
+            congrats.text = "";
+        }
+    }
+
+    public void PlayAgain (string level) {
+        //New Player plays with fresh score
+        score.ResetScore();
+        lm.LoadRequestedLevel(level);
+    }
 }

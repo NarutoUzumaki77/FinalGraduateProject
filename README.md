@@ -10,7 +10,7 @@
 3. Change Song after level Objective is met (Done)
 4. Introduce fox into game. (Done)
 5. Generate fox into game space. (Done)
-6. Have fox walk into game... (WIP) 
+6. Have fox walk into game... (N/A) 
 =====================================
 
 1. High Score (Done)
@@ -19,15 +19,15 @@
 =====================================
 
 1. Farmer Dies... Show play summary and score (Done)
-2. Change Song when objective is failed 
+2. Change Sound/Song on gameOver
 3. Work on projectile changing direction when farmer changes direction (Done)
+4. Tutorial Page
 
 
 
 Identified Defects
 ===================
 1. "Unable to remove Coordinate, no matching position on grid" => Error Message (Fixed)
-2. Remove walking fox when objective complete or game is over
-3. Farmer should not be able to move diagonally	(Fixed)
-4. Reset AppleReward Counter, after objective is complete or gameover (Fixed)
-5. After objective is complete, stage recycles twice (Fixed)
+2. Farmer should not be able to move diagonally	(Fixed)
+3. Reset AppleReward Counter, after objective is complete or gameover (Fixed)
+4. After objective is complete, stage recycles twice (Fixed)
