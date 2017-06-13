@@ -19,15 +19,15 @@
 =====================================
 
 1. Farmer Dies... Show play summary and score (Done)
-2. Change Song when objective is failed
-3. Work on projectile changing direction when farmer changes direction
+2. Change Song when objective is failed 
+3. Work on projectile changing direction when farmer changes direction (Done)
 
 
 
 Identified Defects
 ===================
-1. "Unable to remove Coordinate, no matching position on grid" => Error Message
+1. "Unable to remove Coordinate, no matching position on grid" => Error Message (Fixed)
 2. Remove walking fox when objective complete or game is over
-3. Farmer should not be able to move diagonally
-4. Reset AppleReward Counter, after objective is complete or gameover
+3. Farmer should not be able to move diagonally	(Fixed)
+4. Reset AppleReward Counter, after objective is complete or gameover (Fixed)
 5. After objective is complete, stage recycles twice (Fixed)

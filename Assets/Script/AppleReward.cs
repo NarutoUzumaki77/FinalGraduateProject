@@ -18,22 +18,23 @@ public class AppleReward : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        GameObject obj = collision.gameObject;
         if (collision.gameObject.GetComponent<Farmer>()) {
             Farmer.projectileCounter += 2;
             appleCounter.text = Farmer.projectileCounter.ToString();
+			npc.RemovePositionFromGrid(gameObject);
             Destroy(gameObject);
-            npc.RemovePositionFromGrid(obj);
         }
     }
 
-	public void Update()
-	{
-		timer -= Time.deltaTime;
-		timerInt = (int)timer;
-		if (timerInt <= 0)
-		{
+	public void Update() {
+        if (!TimerLevel.isLevelComplete) {
+			timer -= Time.deltaTime;
+			timerInt = (int)timer;
+			if (timerInt <= 0 && gameObject) {
+				Destroy(gameObject);
+			}
+        }else {
             Destroy(gameObject);
-		}
+        }
 	}
 }

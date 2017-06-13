@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_Stage.unity
     guid: 6395f1ca450b54f12bbc317e8ca3be57
   - enabled: 1
-    path: Assets/Scenes/LevelChange.unity
+    path: Assets/Scenes/GameOver.unity
     guid: b282c21cbc20d4ff080e43db955247b2
   - enabled: 0
     path: 

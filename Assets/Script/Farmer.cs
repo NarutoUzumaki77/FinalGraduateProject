@@ -15,7 +15,7 @@ public class Farmer : MonoBehaviour {
     private AudioSource sound;
 	private Text animalCountText;
     private Text appleCounter;
-    private Score score;
+    private PcgGenerator generator;
     private GameObject shoot;
 	private float newX;
 	private float newY;
@@ -31,7 +31,7 @@ public class Farmer : MonoBehaviour {
 	void Start () {
         anim = GetComponent<Animator>();
         sound = GetComponent<AudioSource>();
-        score = GetComponent<Score>();
+        generator = GetComponent<PcgGenerator>();
         animalCountText = GameObject.Find("AnimalCount").GetComponent<Text>();
         appleCounter = GameObject.Find("AppleCountText").GetComponent<Text>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
@@ -83,10 +83,7 @@ public class Farmer : MonoBehaviour {
 				anim.SetBool("walking", true);
 				transform.Translate(Vector3.left * speed * Time.deltaTime);
 			}
-		}
-
-		if (Input.GetKey(KeyCode.RightArrow))
-		{
+		} else if (Input.GetKey(KeyCode.RightArrow)) {
 			if (isFacingLeft){
 				transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
 				isFacingLeft = false;
@@ -95,19 +92,15 @@ public class Farmer : MonoBehaviour {
 				anim.SetBool("walking", true);
 				transform.Translate(Vector3.right * speed * Time.deltaTime);
 			}
-		}
-
-		if (Input.GetKey(KeyCode.UpArrow) && isMovingUp){
+		} else if (Input.GetKey(KeyCode.UpArrow) && isMovingUp){
 			anim.SetBool("walking", true);
 			transform.Translate(Vector3.up * speed * Time.deltaTime);
-		}
-
-		if (Input.GetKey(KeyCode.DownArrow) && isMovingDown){
+		}else if (Input.GetKey(KeyCode.DownArrow) && isMovingDown){
 			anim.SetBool("walking", true);
 			transform.Translate(Vector3.down * speed * Time.deltaTime);
-		}
+		} 
 
-		if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)
+        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)
 				|| Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow)){
 			anim.SetBool("walking", false);
 		}        
@@ -131,7 +124,6 @@ public class Farmer : MonoBehaviour {
             Invoke("GameOver", 2f);
         }
         RescueFarmAnimals(obj);
-
 	}
 
     private void GameOver() {
@@ -152,8 +144,8 @@ public class Farmer : MonoBehaviour {
             GameObject parent = animal.transform.parent.gameObject;
             Destroy(parent);
             npc.RemovePositionFromGrid(parent);
-            score.SetAnimalCount();
-            animalCountText.text = score.GetAnimalCount().ToString();
+            generator.SetAnimalCount();
+            animalCountText.text = generator.GetAnimalCount().ToString();
         }
     }
 

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour {
 
-    private Score score;
+    private PcgGenerator score;
 
 	// Use this for initialization
 	void Start () {
-        score = GameObject.FindObjectOfType<Score>();
+        score = GameObject.FindObjectOfType<PcgGenerator>();
         if (score){
             Debug.Log("score found"); 
         } else {

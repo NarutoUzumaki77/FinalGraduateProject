@@ -1,4 +1,3 @@
-/Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_obj/Debug/FinalProject.csproj.CoreCompileInputs.cache
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_bin/Debug/Assembly-CSharp.dll
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_bin/Debug/Assembly-CSharp.pdb
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_bin/Debug/Boo.Lang.dll
@@ -57,5 +56,6 @@
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_bin/Debug/UnityEditor.iOS.Extensions.Common.dll.mdb
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_bin/Debug/Mono.Security.dll.mdb
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_obj/Debug/FinalProject.csproj.CoreCompileInputs.cache
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_obj/Debug/Assembly-CSharp.dll
 /Users/mekzy/Documents/Repo/FinalProject/Temp/UnityVS_obj/Debug/Assembly-CSharp.pdb
