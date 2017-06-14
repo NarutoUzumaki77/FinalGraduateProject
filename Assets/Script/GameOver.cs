@@ -15,9 +15,10 @@ public class GameOver : MonoBehaviour {
 
     // Use this for initialization
     void Start(){
+		congrats = GameObject.Find("Congrats").GetComponent<Text>();
         score = GameObject.FindObjectOfType<ScoreKeeper>();
         lm = GameObject.FindObjectOfType<LevelManager>();
-		congrats = GameObject.Find("Congrats").GetComponent<Text>();
+
         if (score) {
             score.SetHighScore(score.GetScore());
             DisplayScoreSummary();
@@ -31,7 +32,11 @@ public class GameOver : MonoBehaviour {
 		scoreSummary = GameObject.Find("ScoreInt").GetComponent<Text>();
 		highScoreSummary = GameObject.Find("HighScoreInt").GetComponent<Text>();
 
-        levelSummary.text = score.GetLevel().ToString();
+        int level = score.GetLevel();
+        if (level <= 0) {
+            level = 1;
+        }
+        levelSummary.text = level.ToString();
         scoreSummary.text = score.GetScore().ToString();
         highScoreSummary.text = PlayerPrefsManager.GetHighestScore().ToString();
 
