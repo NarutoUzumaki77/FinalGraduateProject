@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Fox : MonoBehaviour
-{
+public class Fox : MonoBehaviour {
 
 	private float speed;
 	private Animator anim;
@@ -15,11 +14,9 @@ public class Fox : MonoBehaviour
 	private GameObject child;
 	private GameObject currentTarget;
 	private int dirInt = 2;
-	//private float newX;
 
 	// Use this for initialization
-	void Start()
-	{
+	void Start() {
 		anim = GetComponent<Animator>();
 		child = gameObject.transform.GetChild(0).gameObject;
 		if (transform.position.x < 0) {
@@ -28,18 +25,7 @@ public class Fox : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
-	{
-        /*
-		//Restricting Player movement within boundaries
-		newX = Mathf.Clamp(transform.position.x, 1.0f, 9.0f);
-		transform.position = new Vector3(newX, transform.position.y, transform.position.z);
-        if (newX <= 1.0f || newX >= 9.0f) {
-			//anim.SetBool("isIdle", true);
-            //InvokeRepeating("ChangeDirection", delayTime, delayTime);
-            Invoke("ChangeDirection", delayTime);
-        }*/
-
+	void Update() {
 		if (!TimerLevel.isLevelComplete) {
 			FoxMovement();
         }else {
@@ -82,6 +68,9 @@ public class Fox : MonoBehaviour
 
 	public void SetSpeed(float speed){
 		this.speed = speed;
+        if (PlayerPrefsManager.GetDifficulty() > 2 && speed > 0){
+            this.speed = speed + 0.15f;
+        }
 	}
 
 	public void Attack(GameObject obj){

@@ -82,6 +82,7 @@
 'Assets/Script/AppleReward.cs'
 'Assets/Script/Barn.cs'
 'Assets/Script/Colliders.cs'
+'Assets/Script/DynamicDiffAdjustment.cs'
 'Assets/Script/FadeOut.cs'
 'Assets/Script/FarmAnimal.cs'
 'Assets/Script/Farmer.cs'

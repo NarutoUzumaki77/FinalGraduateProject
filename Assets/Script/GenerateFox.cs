@@ -6,21 +6,19 @@ public class GenerateFox : MonoBehaviour
 {
 
 	public GameObject fox;
-	public int foxCount;
+	private int foxCount;
 
 	private NonPlayableEntities npc;
 
 	// Use this for initialization
-	void Start()
-	{
+	void Start() {
 		npc = GameObject.FindObjectOfType<NonPlayableEntities>();
 		InstantiateFox();
 	}
 
-	public void InstantiateFox()
-	{
-		for (int i = 1; i <= foxCount; i++)
-		{
+	public void InstantiateFox() {
+        foxCount = 1 + (int)PlayerPrefsManager.GetDifficulty();
+		for (int i = 1; i <= foxCount; i++) {
 			string position = npc.DetermineEntityDropPosition();
 			string[] posArray = position.Split('|');
 			float x = float.Parse(posArray[0]);
