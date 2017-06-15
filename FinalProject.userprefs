@@ -1,14 +1,16 @@
 ﻿<Properties StartupConfiguration="{19722274-1DCD-A500-227F-F45CF1529AE2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/FarmAnimal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Barn.cs">
     <Files>
-      <File FileName="Assets/Script/Farmer.cs" Line="145" Column="68" />
-      <File FileName="Assets/Script/AppleReward.cs" Line="30" Column="43" />
-      <File FileName="Assets/Script/GenerateAppleRewards.cs" Line="8" Column="37" />
-      <File FileName="Assets/Script/Barn.cs" Line="11" Column="36" />
-      <File FileName="Assets/Script/ScoreKeeper.cs" Line="57" Column="5" />
-      <File FileName="Assets/Script/GameOver.cs" Line="45" Column="43" />
-      <File FileName="Assets/Script/PcgGenerator.cs" Line="18" Column="44" />
-      <File FileName="Assets/Script/FarmAnimal.cs" Line="11" Column="9" />
+      <File FileName="Assets/Script/GenerateFox.cs" Line="17" Column="3" />
+      <File FileName="Assets/Script/NonPlayableEntities.cs" Line="17" Column="29" />
+      <File FileName="Assets/Script/PlayerPrefsManager.cs" Line="25" Column="40" />
+      <File FileName="Assets/Script/DynamicDiffAdjustment.cs" Line="23" Column="6" />
+      <File FileName="Assets/Script/TimerLevel.cs" Line="32" Column="9" />
+      <File FileName="Assets/Script/OptionsController.cs" Line="21" Column="18" />
+      <File FileName="Assets/Script/Fox.cs" Line="66" Column="35" />
+      <File FileName="Assets/Script/AppleReward.cs" Line="34" Column="25" />
+      <File FileName="Assets/Script/Farmer.cs" Line="124" Column="36" />
+      <File FileName="Assets/Script/Barn.cs" Line="15" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

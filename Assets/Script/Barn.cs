@@ -17,6 +17,9 @@ public class Barn : MonoBehaviour{
 				obj.GetComponent<AudioSource>().Play();
 				PCG_MazeBricks.mazePositions.Clear();
 				obj.GetComponent<Animator>().SetBool("walking", false);
+                if (PlayerPrefsManager.GetDifficulty() > 1) {
+                    Farmer.projectileCounter = 0;
+                }
 			}
 		}
         Debug.Log(PcgGenerator.pickedUpAllAnimal); 

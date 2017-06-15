@@ -19,9 +19,10 @@
 =====================================
 
 1. Farmer Dies... Show play summary and score (Done)
-2. Change Sound/Song on gameOver
+2. Change Sound/Song on gameOver (Done)
 3. Work on projectile changing direction when farmer changes direction (Done)
-4. Tutorial Page
+4. Tutorial Page (Done)
+5. DDA
 
 
 

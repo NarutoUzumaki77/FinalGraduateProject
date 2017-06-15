@@ -6,6 +6,8 @@ public class TimerLevel : MonoBehaviour {
 	private Text timeText;
 	private Text level;
     private int level_number;
+	private PcgGenerator generator;
+    private LevelManager levelManager;
 
     public static bool isGameOver;
     public static bool isLevelComplete;
@@ -20,6 +22,8 @@ public class TimerLevel : MonoBehaviour {
 		level_number = 1;
 		level = GameObject.Find("Level").GetComponent<Text>();
 		level.text = level_number.ToString();
+        generator = GameObject.FindObjectOfType<PcgGenerator>();
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
 	}
 
 	// Update is called once per frame
@@ -27,9 +31,18 @@ public class TimerLevel : MonoBehaviour {
         if (!isLevelComplete) {
 			ftime -= Time.deltaTime;
 			timer = (int)ftime;
+            CheckifTimerisZero();
 			timeText.text = "000" + timer.ToString();
 		}
 	}
+
+    private void CheckifTimerisZero() {
+        if (timer <= 0) {
+            isLevelComplete = true;
+			generator.ResetAnimalCount();
+			levelManager.LoadNextLevel();
+        }
+    }
 
     public void SetLevel () {
         level_number = level_number + 1;

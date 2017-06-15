@@ -15,7 +15,7 @@ public class NonPlayableEntities : MonoBehaviour
 	}
 
 	public void GenerateNPC() {
-		npeSize = entity.Length * Mathf.RoundToInt(PlayerPrefsManager.GetDifficulty());
+		npeSize = entity.Length + Mathf.RoundToInt(PlayerPrefsManager.GetDifficulty());
 
 		for (int i = 0; i < npeSize; i++) {
 			string position = DetermineEntityDropPosition();
